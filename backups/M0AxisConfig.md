@@ -71,13 +71,16 @@ The internal pull/down is not used due to the end switch having an onboard pull 
 
 **Setting homing direction**
 
+    dev0.axis0.controller.config.homing_speed = -0.25
+    dev0.axis0.config.startup_homing = True
+
 
 ## On startup ##
 
 Run the index calibration before starting:
 
-    dev0.axis0.requested_state = AXIS_STATE_ENCODER_OFFSET_CALIBRATION  -- Seems to only be needing this one
-    //dev0.axis0.requested_state = AXIS_STATE_ENCODER_INDEX_SEARCH
+    dev0.axis0.requested_state = AXIS_STATE_ENCODER_INDEX_SEARCH    
+    dev0.axis0.requested_state = AXIS_STATE_ENCODER_OFFSET_CALIBRATION
 
 Then the motor is ready to be used.
 
@@ -90,3 +93,12 @@ Motor information is inside of
 i.e
 
     dev0.axis0.motor.config.phase_resistance
+
+
+To save the configuration to a file on the PC, run
+
+    odrivetool backup-config my_config.json
+
+To restore the configuration form such a file, run
+
+    odrivetool restore-config my_config.json

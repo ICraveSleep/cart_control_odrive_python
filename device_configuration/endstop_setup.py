@@ -38,7 +38,7 @@ if __name__ == "__main__":
     configure_max_end_stop(drive0)
     print("Configured max end stop")
 
-    drive0.axis0.controller.config.homing_speed = -0.30
+    drive0.axis0.controller.config.homing_speed = -0.5
 
     try:
         drive0.save_configuration()

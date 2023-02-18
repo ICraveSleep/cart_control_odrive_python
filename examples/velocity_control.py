@@ -4,7 +4,7 @@ from odrive.enums import *
 
 # https://docs.odriverobotics.com/v/latest/control-modes.html#ramped-velocity-control
 if __name__ == "__main__":
-    calibrated = True  # Set False to run full calibration sequence
+    calibrated = False  # Set False to run full calibration sequence
     drive0 = odrive.find_any()
 
     if not calibrated:
@@ -20,10 +20,11 @@ if __name__ == "__main__":
         drive0.axis0.controller.config.control_mode = ControlMode.VELOCITY_CONTROL
         drive0.axis0.requested_state = AxisState.CLOSED_LOOP_CONTROL
         time.sleep(0.5)
+
     print(f"Velocity limit = {drive0.axis0.controller.config.vel_limit}")
-    drive0.axis0.controller.input_vel = 10  # [turns/s]
+    drive0.axis0.controller.input_vel = 2  # [turns/s]
     time.sleep(2.5)
-    drive0.axis0.controller.input_vel = -10  # [turns/s]
+    drive0.axis0.controller.input_vel = -2  # [turns/s]
     time.sleep(2.5)
 
     drive0.axis0.controller.input_vel = 0

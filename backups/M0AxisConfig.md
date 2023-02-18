@@ -8,6 +8,12 @@ Motor parameters
     Estimated phase inductance = 2.947691609733738e-05
     KV = 335
     Torue conastant = 8.27 / (KV) = 8.27/335 = 0.02468656716
+    Max distance is about -12.691797256469727 turns
+    Min distance is about -0.037105560302734375 turns
+
+    Moving to the right is negative and moving towards the left is positiv
+    --> (-)
+    <-- (+)
 
 Config variables
 
@@ -71,7 +77,7 @@ The internal pull/down is not used due to the end switch having an onboard pull 
 
 **Setting homing direction**
 
-    dev0.axis0.controller.config.homing_speed = -0.25
+    dev0.axis0.controller.config.homing_speed = -6.346
     dev0.axis0.config.startup_homing = True
 
 
@@ -102,3 +108,5 @@ To save the configuration to a file on the PC, run
 To restore the configuration form such a file, run
 
     odrivetool restore-config my_config.json
+
+

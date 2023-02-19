@@ -110,3 +110,8 @@ To restore the configuration form such a file, run
     odrivetool restore-config my_config.json
 
 
+Check the current set points
+
+    dev0.axis0.controller.pos_setpoint
+    dev0.axis0.controller.torque_setpoint
+    dev0.axis0.controller.vel_setpoint  

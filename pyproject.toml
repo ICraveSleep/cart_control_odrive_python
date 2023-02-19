@@ -1,0 +1,15 @@
+# Introduction to pyproject and package installs: https://www.youtube.com/watch?v=v6tALyc4C10
+# SETUPTOOLS Docs: https://setuptools.pypa.io/en/latest/
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cart_control"
+version = "1.0.0"
+
+[tool.setuptools.packages.find]
+where = ["."] # OR where = ["cart_control"]
+include = ["cart_control"] # OR include = ["*"]
+exclude = []
